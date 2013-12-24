@@ -1,3 +1,9 @@
+geoip (1.4.8+dfsg-2pexip1) pexip; urgency=low
+
+  * Prepare Pexip packaging
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 24 Dec 2013 19:16:53 +0000
+
 geoip (1.4.8+dfsg-2) unstable; urgency=low
 
   * Apply patch from Sebastian Carneiro, to fix the broken libtool.
