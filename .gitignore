@@ -5,6 +5,8 @@
 .DS_Store
 .deps
 .libs
+/m4
+GeoIP-*.tar.gz
 GeoIP.spec
 Makefile
 Makefile.in

@@ -421,8 +421,10 @@ binary_trie::update_records()
 	// Here, we remove that bit, and increment the record by the number of nodes,
 	// because this is how libGeoIP determines whether a node points to an entry
 	// inside the data section or another node.
-		for (int i = 0;i<1;++i) {
-			if (it->edges[i] & 0x80000000) // msb means data record pointer
+		for (int i = 0;i<2;++i) {
+			if (it->edges[i] == 0x80000000)
+				it->edges[i] = nodes.size();
+			else if (it->edges[i] & 0x80000000)
 			{
 				it->edges[i] = (it->edges[i] & 0x7FFFFFFF) + nodes.size();
 			}
@@ -476,9 +478,12 @@ namespace {
 		for(int i = 0; i<2;++i) {
 			fs = buf.find(delim);
 			fields.push_back(buf.substr(0,fs));
-			buf.erase(0,fs + 1);
+			buf.erase(0,fs + delim.length());
 		}
+		if (buf[0] == '"' || buf[0] == '\'')
 		fields.push_back(buf.substr(1, buf.length() - 2));
+		else
+			fields.push_back(buf);
 	}
 
 	void
@@ -487,13 +492,16 @@ namespace {
 		std::vector<std::string> & fields)
 	{
 		std::string buf(line);
-		std::string delim = ", ";
+		std::string delim = ",";
 		std::size_t fs;
 		for(int i = 0; i<3;++i) {
 			fs = buf.rfind(delim);
-			fields.push_back(buf.substr(fs+2, buf.length()));
+			fields.push_back(buf.substr(fs+delim.length(), buf.length()));
 			buf.erase(fs,buf.length());
 		}
+		if (buf[0] == '"' || buf[0] == '\'')
+			fields.push_back(buf.substr(1, buf.length() - 2));
+		else
 		fields.push_back(buf.substr(0, buf.length()));
 	}
 
@@ -584,11 +592,11 @@ namespace {
 
 			switch (address_family) {
 			case AF_INET:
-				minaddr.inet.s_addr = htonl(atoi(csv_fields[V4_CSV_FIELD_MIN_DECIMAL].c_str()));
-				maxaddr.inet.s_addr = htonl(atoi(csv_fields[V4_CSV_FIELD_MAX_DECIMAL].c_str()));
-				trie.set_range(minaddr.inetbytes, maxaddr.inetbytes,
-					       32, leaf);
+				inet_aton(csv_fields[V4_CSV_FIELD_MIN_DECIMAL].c_str(), &(minaddr.inet));
+				inet_aton(csv_fields[V4_CSV_FIELD_MAX_DECIMAL].c_str(), &(maxaddr.inet));
+				trie.set_range(minaddr.inetbytes, maxaddr.inetbytes, 32, leaf);
 				break;
+
 			case AF_INET6:
 				if (inet_pton(address_family, csv_fields[V6_CSV_FIELD_MIN_TEXT].c_str(), &minaddr) <= 0) {
 					error_at_line(EX_DATAERR, 0, csv_file_name, csv_line_number,
@@ -600,7 +608,7 @@ namespace {
 						      "Cannot parse maximum address: %s",
 						      csv_fields[V6_CSV_FIELD_MAX_TEXT].c_str());
 				}
-				trie.set_range(minaddr.inetbytes, maxaddr.inetbytes,
+				trie.set_range(minaddr.inet6.s6_addr, maxaddr.inet6.s6_addr,
 					       128, leaf);
 				break;
 

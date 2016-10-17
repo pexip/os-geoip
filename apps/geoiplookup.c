@@ -1,7 +1,7 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 2; tab-width: 2 -*- */
 /* geoiplookup.c
  *
- * Copyright (C) 2006 MaxMind LLC
+ * Copyright (C) 2016 MaxMind, Inc.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
     _GeoIP_setup_dbfilename();
 
     if (custom_file != NULL) {
-        gi = GeoIP_open(custom_file, GEOIP_STANDARD);
+        gi = GeoIP_open(custom_file, GEOIP_STANDARD | GEOIP_SILENCE);
 
         if (NULL == gi) {
             printf("%s not available, skipping...\n", custom_file);
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
         /* iterate through different database types */
         for (i = 0; i < NUM_DB_TYPES; ++i) {
             if (GeoIP_db_avail(i)) {
-                gi = GeoIP_open_type(i, GEOIP_STANDARD);
+                gi = GeoIP_open_type(i, GEOIP_STANDARD | GEOIP_SILENCE);
                 if (NULL == gi) {
                     /* Ignore these errors. It's possible
                      * to use the same database name for
@@ -144,8 +144,7 @@ static const char * _mk_NA( const char * p )
     return p ? p : "N/A";
 }
 
-static unsigned long
-__addr_to_num(const char *addr)
+static unsigned long __addr_to_num(const char *addr)
 {
     unsigned int c, octet, t;
     unsigned long ipnum;
@@ -245,8 +244,7 @@ void _say_range_by_ip(GeoIP * gi, uint32_t ipnum )
     GeoIP_range_by_ip_delete(range);
 }
 
-void
-geoiplookup(GeoIP * gi, char *hostname, int i)
+void geoiplookup(GeoIP * gi, char *hostname, int i)
 {
     const char *country_code;
     const char *country_name;
@@ -263,9 +261,7 @@ geoiplookup(GeoIP * gi, char *hostname, int i)
     if (ipnum == 0) {
         printf("%s: can't resolve hostname ( %s )\n", GeoIPDBDescription[i],
                hostname);
-
     }else {
-
         if (GEOIP_DOMAIN_EDITION == i) {
             domain_name = GeoIP_name_by_ipnum(gi, ipnum);
             if (domain_name == NULL) {
@@ -273,6 +269,7 @@ geoiplookup(GeoIP * gi, char *hostname, int i)
             }else {
                 printf("%s: %s\n", GeoIPDBDescription[i], domain_name);
                 _say_range_by_ip(gi, ipnum);
+                free((void *)domain_name);
             }
         }else if (GEOIP_LOCATIONA_EDITION == i ||
                   GEOIP_ACCURACYRADIUS_EDITION == i
@@ -289,9 +286,14 @@ geoiplookup(GeoIP * gi, char *hostname, int i)
             }else {
                 printf("%s: %s\n", GeoIPDBDescription[i], asnum_name);
                 _say_range_by_ip(gi, ipnum);
+                free((void *)asnum_name);
             }
         }else if (GEOIP_COUNTRY_EDITION == i) {
             country_id = GeoIP_id_by_ipnum(gi, ipnum);
+            if (country_id < 0 || country_id >= (int)GeoIP_num_countries()) {
+                printf("%s: Invalid database\n", GeoIPDBDescription[i]);
+                return;
+            }
             country_code = GeoIP_country_code[country_id];
             country_name = GeoIP_country_name[country_id];
             if (country_id == 0) {
@@ -354,6 +356,7 @@ geoiplookup(GeoIP * gi, char *hostname, int i)
             }else {
                 printf("%s: %s\n", GeoIPDBDescription[i], org);
                 _say_range_by_ip(gi, ipnum);
+                free((void *)org);
             }
         }else if (GEOIP_NETSPEED_EDITION == i) {
             netspeed = GeoIP_id_by_ipnum(gi, ipnum);
@@ -367,18 +370,6 @@ geoiplookup(GeoIP * gi, char *hostname, int i)
                 printf("%s: Corporate\n", GeoIPDBDescription[i]);
             }
             _say_range_by_ip(gi, ipnum);
-        }else {
-
-            /*
-             * Silent ignore IPv6 databases. Otherwise we get annoying
-             * messages whenever we have a mixed environment IPv4 and
-             *  IPv6
-             */
-
-            /*
-             * printf("Can not handle database type -- try geoiplookup6\n");
-             */
-            ;
         }
     }
 }
