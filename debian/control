@@ -13,7 +13,7 @@ Build-Depends: debhelper (>= 7),
  dh-autoreconf,
  libtool
 Standards-Version: 3.9.2
-XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
 
 Package: libgeoip1
 Section: libs
