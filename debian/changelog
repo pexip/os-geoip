@@ -1,3 +1,43 @@
+geoip (1.6.12-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 4.1.3 (no changes required).
+  * Bump debian/compat level to 11.
+  * Remove trailing whitespaces from debian/changelog.
+  * Remove useless autotools-dev and dh-autoreconf build dependency.
+  * Use pkg-info.mk instead of dpkg-parsechangelog.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Wed, 24 Jan 2018 14:47:06 +0100
+
+geoip (1.6.11-3) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.1.1 (no changes required).
+  * Add patch from Steve Langasek to fix compatibility with g++7. Much thanks!
+    Closes: #878024
+  * Use secure homepage URI.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 06 Nov 2017 14:56:05 +0100
+
+geoip (1.6.11-2) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.0.0 (no changes required).
+  * Drop dbg package.
+  * Uploading to unstable.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 03 Jul 2017 09:36:15 +0200
+
+geoip (1.6.11-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Tue, 16 May 2017 10:53:01 +0200
+
+geoip (1.6.10-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Fri, 31 Mar 2017 09:56:16 +0200
+
 geoip (1.6.9-4) unstable; urgency=medium
 
   * Add patch from Yuriy M. Kaminskiy to fix mangled ASN database output due to
@@ -870,7 +910,7 @@ geoip (1.3.0-1) unstable; urgency=low
   * This release contains an important API change:
     1.3.x and above users for GeoIP Region database
     GeoIPRegion.region is no longer a pointer but an in-structure
-    array so test the first byte of region == 0 rather testing if 
+    array so test the first byte of region == 0 rather testing if
     the region pointer is NULL.
 
  -- Marek Habersack <grendel@debian.org>  Tue, 21 Oct 2003 03:22:18 +0200
@@ -881,8 +921,8 @@ geoip (1.2.2-1) unstable; urgency=low
     * Added support for GeoIP ISP Edition identifier
     * Fixed bug in GeoIP_database_info (Jason Linhart)
     * Added support for GeoIP AS Number Edition
-    ! renamed GeoIP_org_by_* functions to GeoIP_name_by_* to reduce 
-      confusion since these functions are used by GeoIP ISP and 
+    ! renamed GeoIP_org_by_* functions to GeoIP_name_by_* to reduce
+      confusion since these functions are used by GeoIP ISP and
       GeoIP ASNum as well as GeoIP Organization
     * Added support for GeoIP Proxy Edition
     ! renamed GeoIP_country_id_by_* functions to GeoIP_id_by_*
