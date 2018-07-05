@@ -1,7 +1,7 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 2; tab-width: 2 -*- */
 /* test-geoip-city.c
  *
- * Copyright (C) 2006 MaxMind LLC
+ * Copyright (C) 2016 MaxMind, Inc.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -31,15 +31,9 @@ int main(int argc, char *argv[])
     FILE *f;
     GeoIP *gi;
     GeoIPRecord *gir;
-    int generate = 0;
     char host[50];
     const char *time_zone = NULL;
     char **ret;
-    if (argc == 2) {
-        if (!strcmp(argv[1], "gen")) {
-            generate = 1;
-        }
-    }
 
     gi = GeoIP_open("../data/GeoIPCity.dat", GEOIP_INDEX_CACHE);
 
