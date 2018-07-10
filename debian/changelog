@@ -1,3 +1,9 @@
+geoip (1.6.9-4pexip1) pexip; urgency=medium
+
+  * Migrate to Stretch
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 10 Jul 2018 10:54:52 +0000
+
 geoip (1.6.9-4) unstable; urgency=medium
 
   * Add patch from Yuriy M. Kaminskiy to fix mangled ASN database output due to
