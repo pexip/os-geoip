@@ -1,8 +1,102 @@
-geoip (1.6.2-4pexip1) pexip; urgency=low
+geoip (1.6.9-4) unstable; urgency=medium
 
-  * Migrate to Jessie
+  * Add patch from Yuriy M. Kaminskiy to fix mangled ASN database output due to
+    CSV missparsing.
+    Closes: #840510
 
- -- John-Mark Bell <jmb@pexip.com>  Wed, 22 Feb 2017 16:58:43 +0000
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 17 Oct 2016 09:32:44 +0200
+
+geoip (1.6.9-3) unstable; urgency=medium
+
+  * Fix FTCBS: Use triplet prefixed CXX. Thanks to Helmut Grohne for his patch.
+    Closes: #836461
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Tue, 06 Sep 2016 11:29:10 +0200
+
+geoip (1.6.9-2) unstable; urgency=high
+
+  * Bump Standards-Version to 3.9.8 (no changes required).
+  * Enable full hardening.
+  * Compile GeoIP generators with C++98 to fix a FTBFS with GCC 6. Thanks to
+    Adrian Bunk for his patch.
+    Closes: #811767
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 22 Aug 2016 11:14:56 +0200
+
+geoip (1.6.9-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Merge 1.6.7-2~bpo8+1 and 1.6.7-2~bpo7+1 changelog.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Wed, 13 Jan 2016 09:16:48 +0100
+
+geoip (1.6.7-2~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 11 Jan 2016 12:55:09 +0100
+
+geoip (1.6.7-2~bpo7+1) wheezy-backports-sloppy; urgency=medium
+
+  * Rebuild for wheezy-backports-sloppy.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 11 Jan 2016 13:15:07 +0100
+
+geoip (1.6.7-2) unstable; urgency=medium
+
+  * Add patch from Aaron Gibson to fix the ASN database generator.
+    Closes: #792827
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 04 Jan 2016 11:53:41 +0100
+
+geoip (1.6.7-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 02 Nov 2015 11:25:24 +0100
+
+geoip (1.6.6-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Fix lintian warning static-library-has-unneeded-section.
+  * Fix lintian warning spelling-error-in-copyright.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Wed, 29 Jul 2015 16:37:12 +0200
+
+geoip (1.6.5-2) unstable; urgency=low
+
+  * Merge 1.6.2-4~bpo70+1 changelog.
+  * Upload to unstable.
+  * Update to DEP5 debian/copyright format.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Sun, 26 Apr 2015 14:24:14 +0200
+
+geoip (1.6.5-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Thu, 26 Feb 2015 14:15:18 +0100
+
+geoip (1.6.4-2) experimental; urgency=low
+
+  * Merge changes from 1.6.2-4.
+    Closes: #775851
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Tue, 27 Jan 2015 19:12:37 +0100
+
+geoip (1.6.4-1) experimental; urgency=low
+
+  * New upstream release.
+    - Remove TODO docs file.
+  * Add 1.6.2-3 changelog.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 19 Jan 2015 19:22:59 +0100
+
+geoip (1.6.2-4~bpo70+1) wheezy-backports; urgency=low
+
+  * Rebuild for wheezy-backports.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Thu, 19 Mar 2015 10:31:32 +0100
 
 geoip (1.6.2-4) unstable; urgency=high
 
@@ -10,6 +104,26 @@ geoip (1.6.2-4) unstable; urgency=high
     Closes: #775851
 
  -- Patrick Matthäi <pmatthaei@debian.org>  Tue, 27 Jan 2015 12:20:30 +0100
+
+geoip (1.6.3-2) experimental; urgency=low
+
+  * Fix download location in debian/copyright.
+  * geoip-generator: Add support for skipping locations if the location ID is
+    not correctly ordered in the upstream CSV.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Thu, 13 Nov 2014 21:38:03 +0100
+
+geoip (1.6.3-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Sun, 09 Nov 2014 21:14:14 +0100
+
+geoip (1.6.2-4pexip1) pexip; urgency=low
+
+  * Migrate to Jessie
+
+ -- John-Mark Bell <jmb@pexip.com>  Wed, 22 Feb 2017 16:58:43 +0000
 
 geoip (1.6.2-3) unstable; urgency=low
 

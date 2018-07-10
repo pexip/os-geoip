@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9),
  autotools-dev,
  dh-autoreconf,
  libtool
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: libgeoip1
