@@ -680,8 +680,8 @@ void dat_writer::write_database_info(const char *database_info)
 
 void dat_writer::write_structure_info()
 {
-	const char structure_info[4] = { 0xFF, 0xFF, 0xFF, database_type };
-	dat_stream->write(structure_info, 4);
+	const unsigned char structure_info[4] = { 0xFF, 0xFF, 0xFF, database_type };
+	dat_stream->write((const char *)structure_info, 4);
 }
 
 /*************************************************
@@ -804,14 +804,14 @@ void city_dat_writer::write_structure_info(binary_trie &trie)
 {
 	int trie_size = std::distance(trie.nodes_begin(), trie.nodes_end());
 
-	const char structure_info[7] = { 0xFF,
-					 0xFF,
-					 0xFF,
-					 database_type,
-					 (trie_size      ) & 0xFF,
-					 (trie_size >> 8 ) & 0xFF,
-					 (trie_size >> 16) & 0xFF};
-	dat_stream->write(structure_info, 7);
+	const unsigned char structure_info[7] = { 0xFF,
+						  0xFF,
+						  0xFF,
+						  database_type,
+						  (trie_size      ) & 0xFF,
+						  (trie_size >> 8 ) & 0xFF,
+						  (trie_size >> 16) & 0xFF};
+	dat_stream->write((const char *)structure_info, 7);
 }
 
 /** Convert location info into on-disk format

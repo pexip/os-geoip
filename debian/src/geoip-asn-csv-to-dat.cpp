@@ -708,13 +708,13 @@ namespace {
 
 		switch (address_family) {
 		case AF_INET: {
-			const char structure_info[4] = { 0xFF, 0xFF, 0xFF, 9 };
-			dat_stream.write(structure_info, 4);
+			const unsigned char structure_info[4] = { 0xFF, 0xFF, 0xFF, 9 };
+			dat_stream.write((const char *)structure_info, 4);
 			break;
 		}
 		case AF_INET6: {
-			const char structure_info[4] = { 0xFF, 0xFF, 0xFF, 21 };
-			dat_stream.write(structure_info, 4);
+			const unsigned char structure_info[4] = { 0xFF, 0xFF, 0xFF, 21 };
+			dat_stream.write((const char *)structure_info, 4);
 			break;
 		}
 		default:
