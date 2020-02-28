@@ -1,3 +1,9 @@
+geoip (1.6.12-1pexip1) pexip; urgency=medium
+
+  * Migrate to Buster
+
+ -- Vincent Sanders <vince@pexip.com>  Fri, 28 Feb 2020 21:16:40 +0000
+
 geoip (1.6.12-1) unstable; urgency=medium
 
   * New upstream release.
