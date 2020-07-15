@@ -1,3 +1,9 @@
+geoip (1.6.12-1pexip2) pexip; urgency=medium
+
+  * Rebuild in buster environment
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Wed, 15 Jul 2020 21:34:49 +0000
+
 geoip (1.6.12-1pexip1) pexip; urgency=medium
 
   * Migrate to Buster
