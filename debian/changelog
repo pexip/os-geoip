@@ -1,3 +1,64 @@
+geoip (1.6.12-7) unstable; urgency=medium
+
+  * Adjust lintian overrides.
+  * Bump Standards-Version to 4.5.1.
+  * Bump debhelper-compat to level 13.
+    - Add no required files to debian/not-installed.
+  * Update debian/watch file standard to version 4.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Thu, 19 Nov 2020 14:57:03 +0100
+
+geoip (1.6.12-6) unstable; urgency=medium
+
+  * Merge patch from Vagrant Cascadian to allow reproducible builds on systems
+    with a merged /usr.
+    Closes: #949273
+  * Use the new debhelper-compat notation, and drop the d/compat file.
+  * Add Rules-Requires-Root no.
+  * Bump Standards-Version to 4.5.0.
+  * Adjust source lintian-overrides.
+  * Remove example Makefile whichn references the build path.
+    Closes: #949275
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Thu, 23 Jan 2020 16:32:51 +0100
+
+geoip (1.6.12-5) unstable; urgency=high
+
+  * For the new country code of Kosovo (XK) use the old RS again, because XK is
+    not supported by the legacy API.
+    Closes: #940581
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Wed, 18 Sep 2019 09:20:02 +0200
+
+geoip (1.6.12-4) unstable; urgency=medium
+
+  * Bump debian/compat to level 12.
+  * Prefer the geoname_id field over the registered_country_geoname_id.
+    Closes: #939878
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Tue, 17 Sep 2019 13:31:42 +0200
+
+geoip (1.6.12-3) unstable; urgency=medium
+
+  * Make a new source only upload.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 22 Jul 2019 11:29:33 +0200
+
+geoip (1.6.12-2) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.4.0.
+  * Add countryInfo.txt to geoip-bin package from www.geonames.org, it is
+    required for the converter.
+  * Add new script geolite2-to-legacy-csv.sh from
+    https://github.com/mschmitt/GeoLite2xtables/: It converts the GeoLite2 CSV
+    source to the legacy CSV database. It works with the IPv4 and IPv6 country
+    database.
+    Closes: #918709
+  * Move lintian-overrides file to source directory.
+  * Fix renamed lintian overrides tag.
+
+ -- Patrick Matthäi <pmatthaei@debian.org>  Mon, 08 Jul 2019 12:51:20 +0200
+
 geoip (1.6.12-1) unstable; urgency=medium
 
   * New upstream release.
