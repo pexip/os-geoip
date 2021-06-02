@@ -22,6 +22,13 @@ override_dh_auto_install:
 		-I $(CURDIR)/debian/tmp/usr/include/ -L $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/
 	chrpath -d -k debian/tmp/usr/bin/geoip*
 
+override_dh_auto_configure:
+	dh_auto_configure -- GREP=/bin/grep MKDIR_P="/bin/mkdir -p" SED=/bin/sed SHELL=/bin/bash
+
+override_dh_installexamples:
+	dh_installexamples
+	rm -f $(CURDIR)/debian/libgeoip-dev/usr/share/doc/libgeoip-dev/examples/Makefile
+
 override_dh_install:
 	dh_install
 	strip --remove-section=.comment \

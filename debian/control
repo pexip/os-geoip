@@ -4,11 +4,12 @@ Priority: optional
 Homepage: https://www.maxmind.com/
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Patrick Matthäi <pmatthaei@debian.org>
-Build-Depends: debhelper (>= 11),
+Build-Depends: debhelper-compat (= 11),
  chrpath,
  zlib1g-dev,
  libtool
-Standards-Version: 4.1.3
+Rules-Requires-Root: no
+Standards-Version: 4.5.1
 XS-Pexip-Upstream: http://ftp.debian.org/debian/ bullseye
 
 Package: libgeoip1
@@ -48,7 +49,8 @@ Package: geoip-bin
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends},
- ${shlibs:Depends}
+ ${shlibs:Depends},
+ libnetaddr-ip-perl
 Replaces: libgeoip1 (<= 1.4.4.dfsg-2)
 Multi-Arch: foreign
 Description: IP lookup command line tools that use the GeoIP library

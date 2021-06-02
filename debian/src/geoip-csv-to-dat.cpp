@@ -1103,6 +1103,9 @@ void country_db_impl::read_csv_line(const char *csv_file_name,
 	if (csv_fields[CSV_FIELD_COUNTRY_CODE] == "AN") {
 		csv_fields[CSV_FIELD_COUNTRY_CODE] = "CW";
 	}
+	else if (csv_fields[CSV_FIELD_COUNTRY_CODE] == "XK") {
+		csv_fields[CSV_FIELD_COUNTRY_CODE] = "RS";
+	}
 
 	const int countryid = GeoIP_id_by_code(csv_fields[CSV_FIELD_COUNTRY_CODE].c_str());
 	if (countryid == 0) {

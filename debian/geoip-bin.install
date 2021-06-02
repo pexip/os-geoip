@@ -2,3 +2,5 @@ debian/tmp/usr/bin/* usr/bin/
 debian/tmp/geoip-generator usr/lib/geoip/
 debian/tmp/geoip-generator-asn usr/lib/geoip/
 debian/src/v4-to-v6-layout.pl usr/lib/geoip/
+debian/src/geolite2-to-legacy-csv.sh usr/lib/geoip/
+debian/src/countryInfo.txt usr/share/geoip/
