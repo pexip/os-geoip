@@ -1,3 +1,10 @@
+geoip (1.6.12-7pexip2) pexip; urgency=medium
+
+  * Migrate to Bullseye
+  * Revert debhelper from 13 to 12 to build on buster.
+
+ -- Huw Jones <huw@pexip.com>  Wed, 1 Jun 2021 11:47:43 +0100
+
 geoip (1.6.12-7) unstable; urgency=medium
 
   * Adjust lintian overrides.
