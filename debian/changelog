@@ -1,3 +1,9 @@
+geoip (1.6.12-7pexip3) pexip; urgency=medium
+
+  * Initial bullseye build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 02 Jun 2022 14:42:14 +0100
+
 geoip (1.6.12-7pexip2) pexip; urgency=medium
 
   * Migrate to Bullseye
