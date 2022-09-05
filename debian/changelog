@@ -1,3 +1,9 @@
+geoip (1.6.12-7pexip5) pexip-bullseye; urgency=medium
+
+  * Bullseye rebuild for ARM64 inclusion
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Mon, 05 Sep 2022 10:31:45 +0100
+
 geoip (1.6.12-7pexip4) pexip-bullseye; urgency=medium
 
   * Main bullseye build
