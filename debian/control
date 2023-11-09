@@ -10,7 +10,7 @@ Build-Depends: debhelper-compat (= 13),
  libtool
 Rules-Requires-Root: no
 Standards-Version: 4.5.1
-XS-Pexip-Upstream: http://deb.debian.org/debian/ bullseye
+XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
 
 Package: libgeoip1
 Section: libs
