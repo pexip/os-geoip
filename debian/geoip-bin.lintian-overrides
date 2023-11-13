@@ -1,4 +1,3 @@
-geoip-bin: hardening-no-fortify-functions usr/lib/geoip/geoip-generator
-geoip-bin: hardening-no-fortify-functions usr/lib/geoip/geoip-generator-asn
-geoip-bin: package-contains-documentation-outside-usr-share-doc usr/share/geoip/countryInfo.txt
-geoip-bin: executable-in-usr-lib usr/lib/geoip/*
+geoip-bin: hardening-no-fortify-functions [usr/lib/geoip/geoip-generator*
+geoip-bin: package-contains-documentation-outside-usr-share-doc [usr/share/geoip/countryInfo.txt]
+geoip-bin: executable-in-usr-lib [usr/lib/geoip/*
