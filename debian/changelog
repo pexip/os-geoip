@@ -1,3 +1,9 @@
+geoip (1.6.12-10pexip1) pexip-bookworm; urgency=medium
+
+  * Initial bookworm build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 16 Nov 2023 10:00:03 +0000
+
 geoip (1.6.12-10) unstable; urgency=medium
 
   * Adjust debian/watch to work again with GitHub.
