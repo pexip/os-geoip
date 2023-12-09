@@ -1,3 +1,9 @@
+geoip (1.6.12-10pexip2) pexip-bookworm; urgency=medium
+
+  * Bookworm build for product distribution
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Sat, 09 Dec 2023 22:52:31 +0000
+
 geoip (1.6.12-10pexip1) pexip-bookworm; urgency=medium
 
   * Initial bookworm build
