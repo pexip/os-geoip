@@ -1,3 +1,9 @@
+geoip (1.6.12-10+pexip24u3) pexip-bookworm; urgency=medium
+
+  * New versioning scheme
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 01 Feb 2024 15:58:47 +0000
+
 geoip (1.6.12-10pexip2) pexip-bookworm; urgency=medium
 
   * Bookworm build for product distribution
