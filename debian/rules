@@ -6,20 +6,11 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 include /usr/share/dpkg/architecture.mk
 include /usr/share/dpkg/pkg-info.mk
 
-ifeq ($(origin CXX),default)
-	CXX = $(DEB_HOST_GNU_TYPE)-g++
-endif
-
 %:
 	dh $@ --with autoreconf
 
 override_dh_auto_install:
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
-	# Build the build script.
-	$(CXX) $(CPPFLAGS) -std=gnu++11 $(LDFLAGS) -g debian/src/geoip-csv-to-dat.cpp -o debian/tmp/geoip-generator -lGeoIP \
-		-I $(CURDIR)/debian/tmp/usr/include/ -L $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/
-	$(CXX) $(CPPFLAGS) -std=gnu++11 $(LDFLAGS) -g debian/src/geoip-asn-csv-to-dat.cpp -o debian/tmp/geoip-generator-asn -lGeoIP \
-		-I $(CURDIR)/debian/tmp/usr/include/ -L $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/
 	chrpath -d -k debian/tmp/usr/bin/geoip*
 
 override_dh_auto_configure:

@@ -3,14 +3,17 @@ Section: net
 Priority: optional
 Homepage: https://www.maxmind.com/
 Maintainer: Patrick Matthäi <pmatthaei@debian.org>
-Build-Depends: debhelper-compat (= 13),
+Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 13),
  chrpath,
  zlib1g-dev,
  libtool
 Rules-Requires-Root: no
 Standards-Version: 4.6.2
 
-Package: libgeoip1
+Package: libgeoip1t64
+Provides: ${t64:Provides}
+Replaces: libgeoip1
+Breaks: libgeoip1 (<< ${source:Version})
 Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
@@ -32,7 +35,7 @@ Package: libgeoip-dev
 Section: libdevel
 Architecture: any
 Depends: ${misc:Depends},
- libgeoip1 (= ${binary:Version}),
+ libgeoip1t64 (= ${binary:Version}),
  geoip-bin (= ${binary:Version})
 Description: Development files for the GeoIP library
  GeoIP is a C library that enables the user to find the country that any
@@ -47,9 +50,8 @@ Package: geoip-bin
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends},
- ${shlibs:Depends},
- libnetaddr-ip-perl
-Replaces: libgeoip1 (<= 1.4.4.dfsg-2)
+ ${shlibs:Depends}
+Replaces: libgeoip1t64 (<= 1.4.4.dfsg-2)
 Multi-Arch: foreign
 Description: IP lookup command line tools that use the GeoIP library
  GeoIP is a C library that enables the user to find the country that any

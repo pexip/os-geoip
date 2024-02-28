@@ -1,0 +1,3 @@
+libgeoip1t64: spelling-error-in-binary
+libgeoip1t64: no-symbols-control-file usr/lib/*/libGeoIP.so.*
+libgeoip1t64: package-name-doesnt-match-sonames libgeoip1
