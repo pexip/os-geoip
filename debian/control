@@ -10,7 +10,7 @@ Build-Depends: debhelper-compat (= 13),
  libtool
 Rules-Requires-Root: no
 Standards-Version: 4.6.2
-XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
+XS-Pexip-Upstream: http://deb.debian.org/debian/ trixie
 
 Package: libgeoip1
 Section: libs
