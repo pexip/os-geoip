@@ -50,6 +50,7 @@ Package: geoip-bin
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends},
+ libnetaddr-ip-perl,
  ${shlibs:Depends}
 Replaces: libgeoip1t64 (<= 1.4.4.dfsg-2)
 Multi-Arch: foreign

@@ -1,3 +1,17 @@
+geoip (1.6.12-11.2~deb13u1) trixie; urgency=medium
+
+  * Non-maintainer upload.
+  * Rebuild for trixie.
+
+ -- Adrian Bunk <bunk@debian.org>  Sat, 04 Jul 2026 09:46:00 +0300
+
+geoip (1.6.12-11.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Restore the generator scripts for geoip-database.
+
+ -- Adrian Bunk <bunk@debian.org>  Fri, 03 Jul 2026 21:06:14 +0300
+
 geoip (1.6.12-11.1) unstable; urgency=medium
 
   * Non-maintainer upload.
