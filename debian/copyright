@@ -9,6 +9,12 @@ Copyright: 2011-2023, Patrick Matthäi
   2009, Kalle Olavi Niemitalo
 License: ISC
 
+Files: debian/src/geoip-csv-to-dat.cpp
+Copyright: 2014, Andrew Moise
+  2011, Patrick Matthäi
+  2009, Kalle Olavi Niemitalo
+License: ISC
+
 Files: libGeoIP/GeoIP.c
   libGeoIP/GeoIP.h
   libGeoIP/GeoIPCity.c
